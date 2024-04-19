@@ -32,7 +32,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
     ports:
-      - "8080:80"
+      - 8080:80
     networks:
       - wordpress_network_sanj
 
