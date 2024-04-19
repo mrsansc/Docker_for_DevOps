@@ -16,7 +16,7 @@ services:
     networks:
       - wordpress_network_sanj
     ports:
-      - "3306:3306"
+      - 3306:3306
 
   # WordPress Service
   wordpress:
