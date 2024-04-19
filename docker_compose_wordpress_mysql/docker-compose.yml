@@ -3,18 +3,18 @@ version: '3' #Version of YML file
 services:
   # MySQL Service
   db:
-    image: mysql:5.7
-    container_name: mysql-container
+    image: mysql:8.3.0
+    container_name: mysql-sanj
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: mypassword
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpressuser
-      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: sanj
+      MYSQL_DATABASE: wordpress-sanj
+      MYSQL_USER: sanj
+      MYSQL_PASSWORD: sanj
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - wordpress_network
+      - wordpress_network_sanj
     ports:
       - "3306:3306"
 
@@ -23,24 +23,24 @@ services:
     depends_on:
       - db
     image: wordpress:latest
-    container_name: wordpress-container
+    container_name: wordpress-sanj
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpressuser
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_USER: sanj
+      WORDPRESS_DB_PASSWORD: sanj
     volumes:
       - wordpress_data:/var/www/html
     ports:
       - "8080:80"
     networks:
-      - wordpress_network
+      - wordpress_network_sanj
 
 volumes:
   mysql_data:
   wordpress_data:
 
 networks:
-  wordpress_network:
+  wordpress_network_sanj:
     driver: bridge
   
