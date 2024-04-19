@@ -22,17 +22,19 @@ services:
   wordpress:
     depends_on:
       - db
-    image: wordpress:latest
+    image: wordpress
     container_name: wordpress-sanj
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: sanj
       WORDPRESS_DB_PASSWORD: sanj
+      WORDPRESS_DB_NAME: wordpress-sanj
     volumes:
       - wordpress_data:/var/www/html
     ports:
       - 8080:80
+      - 443:443
     networks:
       - wordpress_network_sanj
 
